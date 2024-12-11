@@ -15,21 +15,25 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Flutter (1.0.0)
-  - image_pickers (0.0.3):
+  - image_pickers (0.0.4):
     - AFNetworking
     - Flutter
     - SDWebImage
-    - ZLPhotoBrowser (= 4.5.6)
+    - ZLPhotoBrowser (= 4.5.7)
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
   - SDWebImage/Core (5.20.0)
-  - ZLPhotoBrowser (4.5.6):
-    - ZLPhotoBrowser/Core (= 4.5.6)
-  - ZLPhotoBrowser/Core (4.5.6)
+  - video_player_avfoundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - ZLPhotoBrowser (4.5.7):
+    - ZLPhotoBrowser/Core (= 4.5.7)
+  - ZLPhotoBrowser/Core (4.5.7)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - image_pickers (from `.symlinks/plugins/image_pickers/ios`)
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -42,13 +46,16 @@ EXTERNAL SOURCES:
     :path: Flutter
   image_pickers:
     :path: ".symlinks/plugins/image_pickers/ios"
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/darwin"
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  image_pickers: c546190bd1f889af1afdc2d34d56de224c574ace
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  image_pickers: f6dd00aed10d0edac77a4d60d08e05e6135bb123
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
-  ZLPhotoBrowser: 9fdd801da47d5aaff778b8213fc711bbadab9cb2
+  video_player_avfoundation: 7c6c11d8470e1675df7397027218274b6d2360b3
+  ZLPhotoBrowser: 04c8a5c5299a3b5945c60bd0e676c16d1215b14c
 
 PODFILE CHECKSUM: 2732b87228f96dc27f3fa02ca49b29bf229dc7b9
 

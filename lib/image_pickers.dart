@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/services.dart';
 
@@ -46,7 +47,6 @@ class ImagePickers {
     int videoRecordMinSecond = 1,
     Language language = Language.system,
   }) async {
-
     bool enableCrop = false;
     int width = -1;
     int height = -1;
@@ -85,9 +85,9 @@ class ImagePickers {
       Media media = Media();
       media.thumbPath = paths[0]["thumbPath"];
       media.path = paths[0]["path"];
-      if(cameraMimeType == CameraMimeType.photo){
+      if (cameraMimeType == CameraMimeType.photo) {
         media.galleryMode = GalleryMode.image;
-      }else{
+      } else {
         media.galleryMode = GalleryMode.video;
       }
       return media;
@@ -176,12 +176,13 @@ class ImagePickers {
         await _channel.invokeMethod('getPickerPaths', params);
     List<Media> medias = [];
     paths.forEach((data) {
+      log(data.toString());
       Media media = Media();
       media.thumbPath = data["thumbPath"];
       media.path = data["path"];
-      if(media.path == media.thumbPath){
+      if (media.path == media.thumbPath) {
         media.galleryMode = GalleryMode.image;
-      }else{
+      } else {
         media.galleryMode = GalleryMode.video;
       }
       medias.add(media);

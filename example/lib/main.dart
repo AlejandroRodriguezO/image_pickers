@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:image_pickers/image_pickers.dart';
 import 'dart:ui' as ui;
 
+import 'video.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -84,8 +86,7 @@ class _MyAppState extends State<MyApp> {
                       showGif: true,
                       selectCount: 5,
                       showCamera: true,
-                      cropConfig:
-                          CropConfig(enableCrop: true),
+                      cropConfig: CropConfig(enableCrop: true),
                       compressSize: 500,
                       uiConfig: UIConfig(
                         uiThemeColor: Color(0xffff0000),
@@ -145,29 +146,20 @@ class _MyAppState extends State<MyApp> {
                         childAspectRatio: 1.0),
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
-                        onTap: () {
-                          ImagePickers.previewVideo(
-                            _listVideoPaths[index].path!,
-                          );
-                        },
-                        child: Image.file(
-                          File(
-                            _listVideoPaths[index].thumbPath!,
-                          ),
-                          fit: BoxFit.cover,
-                        ),
+                        onTap: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => Video(
+                                      video:
+                                          '/Users/jorgealejandrorodriguezoviedo/Library/Developer/CoreSimulator/Devices/F39FA325-DF69-48AC-A75D-EB98B9F9AF3C/data/Media/DCIM/100APPLE/IMG_0010.MP4',
+                                    ))),
+                        child: Text(_listVideoPaths[index].thumbPath!),
                       );
                     }),
                 ElevatedButton(
                   onPressed: () async {
                     _listVideoPaths = await ImagePickers.pickerPaths(
                       galleryMode: GalleryMode.video,
-                      videoRecordMinSecond: 3,
-                      videoRecordMaxSecond: 10,
-                      // videoSelectMaxSecond: 300,
-                      videoSelectMinSecond: 5,
-                      selectCount: 2,
-                      showCamera: true,
+                      selectCount: 1,
                     );
                     setState(() {});
                     print(_listVideoPaths);
@@ -187,7 +179,7 @@ class _MyAppState extends State<MyApp> {
                       Media media = _listImageVideoPaths[index];
                       return GestureDetector(
                         onTap: () {
-                       ImagePickers.previewImagesByMedia(
+                          ImagePickers.previewImagesByMedia(
                               _listImageVideoPaths, index);
                           // if (media.galleryMode == GalleryMode.image) {
                           //   ImagePickers.previewImage(media.path!);
@@ -291,5 +283,4 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-
 }
